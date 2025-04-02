@@ -28,7 +28,7 @@ import org.apache.iceberg.exceptions.AlreadyExistsException
 
 private val logger = LoggerFactory.getLogger("com.example.iceberg.IcebergDemo")
 
-private val WAREHOUSE_LOCATION = "/Users/eunlim/iceberg-demo/warehouse"
+private val WAREHOUSE_LOCATION = "warehouse"
 
 private fun createLocalCatalog(): HadoopCatalog {
     val catalog = HadoopCatalog()

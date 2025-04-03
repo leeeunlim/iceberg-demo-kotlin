@@ -11,10 +11,14 @@ repositories {
 }
 
 dependencies {
-    // Iceberg dependencies
-    implementation("org.apache.iceberg:iceberg-core:1.4.3")
-    implementation("org.apache.iceberg:iceberg-parquet:1.4.3")
-    implementation("org.apache.iceberg:iceberg-data:1.4.3")
+    // Iceberg dependencies - 버전을 1.3.1로 변경
+    implementation("org.apache.iceberg:iceberg-core:1.3.1")
+    implementation("org.apache.iceberg:iceberg-parquet:1.3.1")
+    implementation("org.apache.iceberg:iceberg-data:1.3.1")
+    
+    // REST Catalog 관련 의존성 시도
+    implementation("org.apache.iceberg:iceberg-aws:1.3.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
     
     // Parquet dependencies
     implementation("org.apache.parquet:parquet-common:1.13.1")
@@ -43,12 +47,12 @@ kotlin {
 }
 
 application {
-    mainClass.set("com.example.iceberg.IcebergDemoKt")
+    mainClass.set("com.example.iceberg.MainKt")
 }
 
 tasks.jar {
     manifest {
-        attributes["Main-Class"] = "com.example.iceberg.IcebergDemoKt"
+        attributes["Main-Class"] = "com.example.iceberg.MainKt"
     }
     from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE

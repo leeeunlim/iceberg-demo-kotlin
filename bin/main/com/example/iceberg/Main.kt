@@ -18,7 +18,7 @@ private val logger = LoggerFactory.getLogger("com.example.iceberg.Main")
 fun main(args: Array<String>) {
     val catalogType = System.getenv("CATALOG_TYPE") ?: "hadoop"
     
-    logger.info("선택된 카탈로그 유형 새로 실행햇나: {}", catalogType)
+    logger.info("선택된 카탈로그 유형: {}", catalogType)
     
     when (catalogType.lowercase()) {
         "rest" -> {
